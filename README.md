@@ -1,6 +1,7 @@
 # Stacey 2.3.0
 
 ## Overview
+
 Stacey takes content from `.txt` files, image files and implied directory structure and generates a website.
 It is a no-database, dynamic website generator.
 
@@ -22,8 +23,13 @@ There are an additional two sets of templates which can be found at:
 
 See <http://staceyapp.com> for more detailed usage information.
 
+## Modifications
+
+Custom modifications for the "Digitale Klasse, University of Arts, Berlin" website <http://digital.udk-berlin.de/>.
+Site template is in a seperate repo and can be found here <http://github.com/m9dfukc/stacey-digitaleklasse-template>.
+
 ## Copyright/License
 
-Copyright (c) 2009 Anthony Kolber. See `LICENSE` for details.
+Copyright (c) 2009 Anthony Kolber, (c) 2011 Andreas Schmelas. See `LICENSE` for details.
 Except PHP Markdown Extra which is (c) Michel Fortin (see `/app/parsers/markdown-parser.inc.php` for details) and
 JSON.minify which is (c) Kyle Simpson (see 'app/parsers/json-minifier.inc.php' for details).
