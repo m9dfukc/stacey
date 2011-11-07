@@ -20,7 +20,7 @@ Class Page {
     $this->template_type = self::template_type($this->template_file);
 
     # create/set all content variables
-    PageData::create($this);
+    PageDataExtended::create($this);
     # sort data array by key length
     # this ensures that something like '@title' doesn't turn '@page_title'
     # into '@page_Contents of @title variable' in the final rendered template
