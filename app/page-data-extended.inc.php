@@ -38,17 +38,17 @@ Class PageDataExtended extends PageData {
   	      }
   	    }
   	    $students = (Array)Helpers::list_files($students_path, '/\S/', true);
-  	    $semesterprojects = array();
+  	    $semester_projects = array();
   	    foreach($students as $key => $val) {
   	      $projects = (Array)Helpers::list_files($val."/projects", '/\S/', true);
   	      foreach($projects as $prj_key => $prj_val) {
   	        if (preg_match('/'.$page->data['@slug'].'./is', strtolower($prj_key))) {
-  	          $semesterprojects[$prj_key] = $prj_val;
+  	          $semester_projects[$prj_key] = $prj_val;
   	        }
   	      }
   	    }
   	    
-  	    $page->children = $semesterprojects;
+  	    $page->children = $semester_projects;
 	  }
 	}
 	
