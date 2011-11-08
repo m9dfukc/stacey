@@ -23,20 +23,20 @@ Class Helpers {
   }
 
   static function file_path_to_url($file_path) {
-    $url = preg_replace(array('/\d+?\./', '/\.\/content(\/)?/'), '', $file_path);
+    $url = trim(preg_replace(array('@/\d+?\.@', '/\.\/content(\/)?/'), '/', $file_path),'/');
     return $url ? $url : 'index';
   }
 
   static function url_to_file_path($url) {
     # if the url is empty, we're looking for the index page
     $url = empty($url) ? 'index': $url;
-
     $file_path = './content';
     # Split the url and recursively unclean the parts into folder names
     $url_parts = explode('/', $url);
     foreach($url_parts as $u) {
         # Look for a folder at the current path that doesn't start with an underscore
         if(!preg_match('/^_/', $u)) $matches = array_keys(Helpers::list_files($file_path, '/^(\d+?\.)?'.$u.'$/', true));
+		    if(empty($matches)) $matches = array_keys(Helpers::list_files($file_path, '/\S/', true)); /* andreas */
         # No matches means a bad url
         if(empty($matches)) return false;
         else $file_path .=  '/'.$matches[0];
@@ -53,7 +53,6 @@ Class Helpers {
   static function file_cache($dir = false) {
     if(!self::$file_cache) {
       # build file cache
-      self::build_file_cache('./app');
       self::build_file_cache('./content');
       self::build_file_cache('./templates');
     }
