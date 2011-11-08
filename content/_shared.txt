@@ -1,6 +1,8 @@
-name: Ñame
+name: Digitale Klasse
 -
-profession: Gräphic Designer
+profession: University of the Arts, Berlin
 -
 email: 
 <hi@yourdomain.com>
+-
+bypass_cache: 1

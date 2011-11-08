@@ -1,0 +1,8 @@
+title: Sommersemester 2010
+-
+topics: Instant Pain
+-
+description: Kurzbeschreibung folgt.
+-
+content: 
+Lorem ipsum
