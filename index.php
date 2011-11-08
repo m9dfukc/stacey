@@ -1,5 +1,8 @@
 <?php
 
+# $_GET stringfix ... the global get array can't handle dots in the key
+$F_GET = (!empty($_SERVER["argv"][0])) ? array($_SERVER["argv"][0] => "") : array();
+
 # let people know if they are running an unsupported version of PHP
 if(phpversion() < 5) {
   
@@ -13,7 +16,7 @@ if(phpversion() < 5) {
   foreach(Helpers::rglob('./app/**.inc.php') as $include) include_once $include;
 
   # start the app
-  new Stacey($_GET);
+  new Stacey($F_GET); //new Stacey($_GET);
   
 }
 
