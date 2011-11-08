@@ -1,5 +1,4 @@
 <?php
-
 Class Page {
 
   var $url_path;
@@ -22,6 +21,7 @@ Class Page {
     # create/set all content variables
     PageDataExtended::create($this);
     # sort data array by key length
+    #
     # this ensures that something like '@title' doesn't turn '@page_title'
     # into '@page_Contents of @title variable' in the final rendered template
     #
@@ -63,7 +63,7 @@ Class Page {
   }
 
   static function template_file($template_name) {
-    $template_name = preg_replace('/([^.]*\.)?([^.]*)$/', '\\2', $template_name);
+	  $template_name = preg_replace('/([^.]*\.)?([^.]*)$/', '\\2', $template_name);
     $template_file = glob('./templates/'.$template_name.'.*');
     # return template if one exists
     return isset($template_file[0]) ? $template_file[0] : false;
