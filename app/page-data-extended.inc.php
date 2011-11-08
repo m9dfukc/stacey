@@ -5,8 +5,8 @@ Class PageDataExtended extends PageData {
 	static function create($page) {
 		parent::create($page);
 		self::create_collections($page);
-    self::create_vars($page);
-    self::create_semester_projects_ref($page);
+		self::create_vars($page);
+		self::create_semester_projects_ref($page);
 	}
 
 	static function create_collections($page) {
