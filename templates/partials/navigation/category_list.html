@@ -1,0 +1,32 @@
+get "/semesters" do
+  if $all_children do
+	foreach $all_children do
+    <p class="category col two">
+	<span>@topics</span><br/>
+	<em>@title</em><br/><br/>
+	<em><i>&ndash; @description</i></em>
+	</p>
+    <ul class="project-list col seven">
+		foreach $root do
+		
+			foreach $all_children do
+				foreach $all_children do
+				
+		    	<li>
+		    		<div class="thumbnail col two">
+		    			<a href="@url"><img src="@thumb" alt=""></a>
+		    		</div>
+		    		<div class="summary col two">
+		    			<p><a href="@url">@title</a></p>
+		    			<p><em>@date</em></p>
+		    			<p><em class="background">&ndash; @keywords</em></p>
+		    		</div>
+		    	</li>
+		    
+				endforeach
+			endforeach
+		endforeach
+    </ul>
+	endforeach
+  endif
+end

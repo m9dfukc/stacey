@@ -10,29 +10,36 @@
 	<body>
 		<div id="container">
 			<h1 class="col two">
-				<a href="@root_path">@name</a>
+				<a href="@root_path/">@name</a>
 				<em>@profession</em>
 			</h1>
-			<h2 class="col four">
+			<h2 class="col two">
 				foreach $parent do
-					foreach $parent do
-						@student
-					endforeach
+					@student
+					<em>@status</em>
 				endforeach
-				<em>@title</em>
 			</h2>
-			<p class="col four" style="text-align: right;"><em> :pages </em></p>
+			<p class="col six" style="text-align: right;"><em> :pages </em></p>
 			<hr>
-			<div id="content" class="col seven">
-				:media
-			</div>
-			<div class="description col three" style="font-size: 10px;">
-				<p><a href="@root_path/"><span style="font-size: 13px;">@title</span></a></p>
-				<p><em><span style="font-size: 11px;">@date</span></em></p>
-				<p><span style="font-size: 8px;">&nbsp;</span></p>
-				<p><em class="background">&ndash; <span style="font-size: 11px;">@keywords</span></em></p>
-				<p><span style="font-size: 8px;">&nbsp;</span></p>
-				@content
+			<div id="content" class="home col eleven">
+				<p class="category col two">
+					<em>About</em>
+				</p>
+				<ul class="project-list col seven">
+					foreach $all_children[0:1] do
+						<li><img src="@thumb" style="float: left; padding: 0 20px 5px 0;"/><em>@content</em></li>
+					endforeach
+				</ul>
+				foreach $all_children do
+					<p class="category col two">
+						<em>Projects</em>
+					</p>
+					<ul class="project-list col seven">
+						foreach $all_children do
+						:project_thumb
+						endforeach
+					</ul>
+				endforeach
 			</div>
 			<hr>
 			<p id="footer" class="col six">

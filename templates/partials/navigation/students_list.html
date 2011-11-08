@@ -1,0 +1,21 @@
+<p class="category col two"><em>@title</em></p>
+<ul class="project-list col seven">
+foreach $all_children_reverse do
+	foreach $all_children[0:1] do
+		<li>
+			foreach $parent[0:1] do
+			<div class="thumbnail col two">
+				<a href="@url"><img src="@thumb"></a>
+			</div>
+			<div class="summary col two">
+				<p><a href="@url">@student</a></p>
+				<p><em>@status</em></p>
+				foreach $all_children[0:1] do
+				<p><em class="background">&ndash; @all_children_count projects</em></p>
+				endforeach
+			</div>
+			endforeach
+		</li>
+	endforeach
+endforeach
+</ul>
