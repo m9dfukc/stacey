@@ -1,0 +1,8 @@
+title: Sommersemester 2011
+-
+topics: Virtual Reality
+-
+description: Kurzbeschreibung folgt.
+-
+content: 
+Lorem ipsum

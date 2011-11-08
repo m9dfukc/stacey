@@ -7,7 +7,8 @@ get "/semesters" do
 			<em><i>&ndash; @description</i></em>
 		</p>
     <ul class="project-list col seven">
-        	<!--
+          if $children do
+        	foreach $children do
 		    	<li>
 		    		<div class="thumbnail col two">
 		    			<a href="@url"><img src="@thumb" alt=""></a>
@@ -18,7 +19,8 @@ get "/semesters" do
 		    			<p><em class="background">&ndash; @keywords</em></p>
 		    		</div>
 		    	</li>
-					-->
+					endforeach
+					endif
     </ul>
 	endforeach
   endif

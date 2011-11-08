@@ -27,24 +27,28 @@ Class PageDataExtended extends PageData {
 		$page->parent_slug = $split_url[count($split_url) - 1];
 	}
 	
-	static function create_semester_projects_ref($page) {
+	static function create_semester_projects_ref($page) {    
 	  if (isset($page->data["@parent_slug"]) && $page->data["@parent_slug"] == "semesters") {
-	      /*
-	      echo "<pre> ------------------------------<br/>";
-  	    print_r($page->data['$root']);
-  	    echo "</pre>";
-  	    */
+
   	    $students_path = "";
   	    foreach($page->data['$root'] as $key => $value) {
-  	      if( preg_match('/students/', strtolower($key)) ) {
+  	      if (preg_match('/students/', strtolower($key)) ) {
   	        $students_path = $value;
   	        break;
   	      }
   	    }
   	    $students = (Array)Helpers::list_files($students_path, '/\S/', true);
+  	    $semesterprojects = array();
   	    foreach($students as $key => $val) {
-  	      //print_r((Array)Helpers::list_files($val."/projects", '/\S/', true));
+  	      $projects = (Array)Helpers::list_files($val."/projects", '/\S/', true);
+  	      foreach($projects as $prj_key => $prj_val) {
+  	        if (preg_match('/'.$page->data['@slug'].'./is', strtolower($prj_key))) {
+  	          $semesterprojects[$prj_key] = $prj_val;
+  	        }
+  	      }
   	    }
+  	    
+  	    $page->children = $semesterprojects;
 	  }
 	}
 	
