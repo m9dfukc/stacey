@@ -26,7 +26,6 @@ See <http://staceyapp.com> for more detailed usage information.
 ## Modifications
 
 Custom modifications for the "Digitale Klasse, University of Arts, Berlin" website <http://digital.udk-berlin.de/>.
-Site template is in a seperate repo and can be found here <http://github.com/m9dfukc/stacey-digitaleklasse-template>.
 
 ## Copyright/License
 
