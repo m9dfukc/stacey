@@ -2,7 +2,6 @@ name: Digitale Klasse
 -
 profession: University of the Arts, Berlin
 -
-email: 
-<hi@yourdomain.com>
+email: <hi@yourdomain.com>
 -
 bypass_cache: 1
