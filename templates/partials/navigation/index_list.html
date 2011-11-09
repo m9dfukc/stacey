@@ -1,24 +1,9 @@
 get "/semesters" do
   if $children do
 	foreach $children do
-		<p class="category col two">
-		  if @topics do
-			<span>@topics</span><br/>
-			endif
-			if @title do
-			<em>@title</em><br/><br/>
-			endif
-			if @description do
-			<em><i>&ndash; @description</i></em>
-			endif
-		</p>
-    <ul class="project-list col seven">
-          if $children do
-        	foreach $children do
-		    	  :project_thumb
-					endforeach
-					endif
-    </ul>
+	  if $children do
+		  :sidebar
+	  endif
 	endforeach
   endif
 end

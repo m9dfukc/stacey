@@ -1,8 +1,0 @@
-title: Sommersemester 2010
--
-topics: Diplomas
--
-description: Kurzbeschreibung folgt.
--
-content: 
-Lorem ipsum
