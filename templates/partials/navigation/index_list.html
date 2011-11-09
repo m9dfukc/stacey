@@ -4,7 +4,9 @@ get "/semesters" do
 		<p class="category col two">
 			<span>@topics</span><br/>
 			<em>@title</em><br/><br/>
+			if @description do
 			<em><i>&ndash; @description</i></em>
+			endif
 		</p>
     <ul class="project-list col seven">
           if $children do
