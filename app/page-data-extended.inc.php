@@ -28,9 +28,18 @@ Class PageDataExtended extends PageData {
 		$page->parent_slug = $split_url[count($split_url) - 1];
 		# @is_xhr (is this an AJAX request)
     $page->is_xhr = (preg_match('/text\/javascript/',$_SERVER['HTTP_ACCEPT']) ? true : false);
+    
+    if (!empty($page->data['@page_number'])) {
+      $page_nr = $page->data['@page_number'];
+      $page->loop_offset = (($page_nr - 1) * 2) . ":" . ($page_nr * 2);
+    } else {
+      $page->loop_offset = "0:2";
+    }
 	}
 	
-	static function create_semester_projects_ref($page) {  
+	static function create_semester_projects_ref($page) { 
+	  //self::dbg($page);
+	   
 	  if (isset($page->data["@parent_slug"]) && preg_match('/students/is', $page->data['@parent_slug'])) {
 	    /* todo */
     } 
@@ -53,6 +62,8 @@ Class PageDataExtended extends PageData {
       }
     } 
     else if (isset($page->data["@parent_slug"]) && $page->data["@parent_slug"] == "semesters") {
+        echo $page->data["@index"] . "<br>";
+        echo $page->data["@siblings_count"] . "<br>";
   	    $students_path = "";
   	    foreach($page->data['$root'] as $key => $value) {
   	      if (preg_match('/students/', strtolower($key)) ) {
