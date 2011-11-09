@@ -4,7 +4,11 @@
 	</div>
 	<div class="summary col two">
 		<p><a href="@url">@title</a></p>
+		if @topic do
 		<p><em>@topic</em></p>
+		endif
+		if @shortkeywords do
 		<p><em class="background">&ndash; @shortkeywords</em></p>
+		endif
 	</div>
 </li>
