@@ -15,9 +15,14 @@ Class Stacey {
     }
     # add trailing slash if required
     if(!preg_match('/\/$/', $_SERVER['REQUEST_URI']) && !preg_match('/\./', $_SERVER['REQUEST_URI'])) {
-      header('HTTP/1.1 301 Moved Permanently');
-      header('Location:'.$_SERVER['REQUEST_URI'].'/');
-      return true;
+      if(preg_match('/&_=\d+/', $_SERVER['REQUEST_URI']) || preg_match('/\??&?ajax=true/', $_SERVER['REQUEST_URI'])) {
+        // catch jQuery ajax requests
+        $_SERVER['REQUEST_URI'] = preg_replace('/\??&?ajax=true/','',preg_replace('/&_=\d+$/','',$_SERVER['REQUEST_URI']));
+      } else {
+        header('HTTP/1.1 301 Moved Permanently');
+        header('Location:'.$_SERVER['REQUEST_URI'].'/');
+        return true;
+      }
     }
     return false;
   }
