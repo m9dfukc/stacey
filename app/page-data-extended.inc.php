@@ -25,6 +25,8 @@ Class PageDataExtended extends PageData {
 		$parent_path = parent::get_parent($page->file_path, $page->url_path);
 		$split_url = explode("/", $parent_path[0]);
 		$page->parent_slug = $split_url[count($split_url) - 1];
+		# @is_xhr (is this an AJAX request)
+    $page->is_xhr = (preg_match('/text\/javascript/',$_SERVER['HTTP_ACCEPT']) ? true : false);
 	}
 	
 	static function create_semester_projects_ref($page) {  
