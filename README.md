@@ -32,5 +32,5 @@ Added some CodeIgnitor helpers for convenience, documentation to be found here <
 
 Copyright (c) 2009 Anthony Kolber, (c) 2011 Andreas Schmelas. See `LICENSE` for details.
 Except PHP Markdown Extra which is (c) Michel Fortin (see `/app/parsers/markdown-parser.inc.php` for details) and
-JSON.minify which is (c) Kyle Simpson (see `app/parsers/json-minifier.inc.php` for details) and Codeignitor Helpers
-which is (c) <http://codeigniter.com/> (see `app/helpers/*.*`).
+JSON.minify which is (c) Kyle Simpson (see `/app/parsers/json-minifier.inc.php` for details) and Codeignitor Helpers
+which is (c) <http://codeigniter.com/> (see `/app/helpers/*.*`).
