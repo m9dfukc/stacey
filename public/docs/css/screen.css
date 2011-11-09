@@ -24,6 +24,7 @@ div#container { margin: 0px auto; width: 890px; padding: 5px 20px; text-align: l
 .col .col { margin: 0px; }
 
 .one { width: 60px; }
+.onenhalf { width: 90px; }
 .two { width: 140px; }
 .three { width: 220px; }
 .four { width: 300px; }
