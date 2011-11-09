@@ -1,18 +1,8 @@
-
-:header
+ :head
 		<div id="container">
-			<h1 class="col two">
-				<a href="@root_path/">@name</a>
-				<em>@profession</em>
-			</h1>
-			<h2 class="col two">
-				foreach $parent do
-					@student
-					<em>@status</em>
-				endforeach
-			</h2>
-			<p class="col six" style="text-align: right;"><em> :pages </em></p>
-			<hr>
+			
+			:menu
+			
 			<div id="content" class="home col eleven">
 				<p class="category col two">
 					<em>About</em>
@@ -38,4 +28,4 @@
 				&copy; Copyright @name @current_year, Build width <a href="http://www.staceyapp.com">Stacey</a>
 			</p>
 		</div>
-:footer
+ :foot

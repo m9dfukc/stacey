@@ -16,15 +16,12 @@ a { text-decoration: none; }
 /* Layout */
 
 body { padding: 10px 0px 40px; text-align: center; }
-div#container { margin: 0px auto; width: 890px; padding: 5px 20px; text-align: left; 
-/*	background: url('/images/grid-bg.gif') 20px 0px;*/
-}
+div#container { margin: 0px auto; width: 890px; padding: 5px 20px; text-align: left; }
 
 .col { float: left; margin: 0px 0px 0px 20px; padding: 0px; }
 .col .col { margin: 0px; }
 
 .one { width: 60px; }
-.onenhalf { width: 90px; }
 .two { width: 140px; }
 .three { width: 220px; }
 .four { width: 300px; }
@@ -40,7 +37,7 @@ div#container { margin: 0px auto; width: 890px; padding: 5px 20px; text-align: l
 h1 em, h2 em { display: block; }
 
 p, h2 { margin: 0px 0px 5px; }
-hr { display: block; clear: both; margin: 0px 0px 30px; padding: 0px; height: 0px; overflow: hidden; visibility: hidden; }
+hr { display: block; clear: both; margin: 0 0 30px 0; visibility: hidden; }
 a img { border: 0px; }
 .col hr { margin: 0px 0px 15px; }
 

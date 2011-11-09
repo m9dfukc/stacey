@@ -3,6 +3,7 @@ include_once "page-data.inc.php";
 Class PageDataExtended extends PageData {
 
 	static function create($page) {
+	  
 		parent::create($page);
 		self::create_collections($page);
 		self::create_vars($page);
