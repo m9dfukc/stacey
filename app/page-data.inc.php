@@ -152,7 +152,7 @@ Class PageData {
     # $root
     $page->root = Helpers::list_files('./content', '/^\d+?\./', true);
     # $parent
-      $parent_path = self::get_parent($page->file_path, $page->url_path);
+    $parent_path = self::get_parent($page->file_path, $page->url_path);
     $page->parent = $parent_path;
     # $parents
     $page->parents = self::get_parents($page->file_path, $page->url_path);
@@ -163,7 +163,7 @@ Class PageData {
     # $siblings_and_self
     $page->siblings_and_self = Helpers::list_files($parent_path, '/^\d+?\./', true);
     # $next_sibling / $previous_sibling
-      $neighboring_siblings = self::extract_closest_siblings($page->data['$siblings_and_self'], $page->file_path);
+    $neighboring_siblings = self::extract_closest_siblings($page->data['$siblings_and_self'], $page->file_path);
     $page->previous_sibling = array($neighboring_siblings[0]);
     $page->next_sibling = array($neighboring_siblings[1]);
 
