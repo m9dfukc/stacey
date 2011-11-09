@@ -1,0 +1,8 @@
+title: Wintersemester 2009/10
+-
+topics: Virtual Reality
+-
+description: Kurzbeschreibung folgt.
+-
+content: 
+Lorem ipsum

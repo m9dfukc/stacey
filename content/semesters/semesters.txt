@@ -1,6 +1,6 @@
-title: Sommersemester 2011
+title: Sommersemester 2010
 -
-topics: Virtual Reality
+topics: Diplomas
 -
 description: Kurzbeschreibung folgt.
 -

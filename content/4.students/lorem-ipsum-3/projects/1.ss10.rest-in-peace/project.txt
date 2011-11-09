@@ -1,6 +1,6 @@
-title: The Longer Project Name 1
+title: rest in peace
 -
-topic: diploma project 
+topic: example topic 
 -
 date: 2009, Jun–
 -

@@ -14,9 +14,13 @@ if(phpversion() < 5) {
   require_once './app/helpers.inc.php';
   # include any php files which sit in the app folder
   foreach(Helpers::rglob('./app/**.inc.php') as $include) include_once $include;
-
+  # include custom codeignitor (http://codeigniter.com/user_guide/index.html) 
+  # helpers which sit in the app/helpers folder
+  define(BASEPATH, "");
+  foreach(Helpers::rglob('./app/helpers/**_helper.php') as $include) include_once $include;
+  
   # start the app
-  new Stacey($F_GET); //new Stacey($_GET);
+  new Stacey($F_GET); // new Stacey($_GET);
   
 }
 

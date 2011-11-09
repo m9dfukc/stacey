@@ -28,8 +28,10 @@ Class PageDataExtended extends PageData {
 	}
 	
 	static function create_semester_projects_ref($page) {    
-	  if (isset($page->data["@parent_slug"]) && $page->data["@parent_slug"] == "semesters") {
-
+	  if (isset($page->data["@parent_slug"]) && $page->data["@parent_slug"] == "projects") {
+	    $page->data['@students'] = random_string('alnum', 10);
+	    if (isset($page->data['@keywords'])) $page->data['@shortkeywords'] = character_limiter($page->data['@keywords'], 60);
+    } else if (isset($page->data["@parent_slug"]) && $page->data["@parent_slug"] == "semesters") {
   	    $students_path = "";
   	    foreach($page->data['$root'] as $key => $value) {
   	      if (preg_match('/students/', strtolower($key)) ) {
@@ -43,7 +45,7 @@ Class PageDataExtended extends PageData {
   	      $projects = (Array)Helpers::list_files($val."/projects", '/\S/', true);
   	      foreach($projects as $prj_key => $prj_val) {
   	        if (preg_match('/'.$page->data['@slug'].'./is', strtolower($prj_key))) {
-  	          $semester_projects[$prj_key] = $prj_val;
+  	          $semester_projects[preg_replace("/^\d+?\./", "", $prj_key)] = $prj_val;
   	        }
   	      }
   	    }
