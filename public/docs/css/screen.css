@@ -49,8 +49,9 @@ div#content ul.project-list li { margin: 0px 20px -1px 0px; float: left; }
 ul.project-list div.thumbnail a { border: 0px; }
 ul.project-list div.summary { margin: 0px 0px 0px 20px; }
 
-h2.title, div#content p.category, div#content ul.project-list li, div.description, p.para, div#images, div#media { border-top: 1px solid #ccc; padding: 20px 0px 0px; }
+h2.title, div#content p.category, div#content ul.project-list li, div.description, p.para, div#images, div#media { border-top: 1px solid #ccc; padding: 20px 0px 0px 0px; }
 div#content ul.project-list li { padding: 20px 0px; }
+#pages_bottom { margin: 0px 0px 0px 20px; border-top: 1px solid #ccc; padding: 10px 0px 0px 0px; }
 
 div#media { overflow: hidden; }
 div.media { margin: 0px 0px 10px; }

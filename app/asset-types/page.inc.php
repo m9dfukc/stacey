@@ -13,7 +13,7 @@ Class Page {
     # extract page number from url
     if (preg_match('@/page=(\d+)@is', $url, $matches)) {
       $url = str_replace(array_shift($matches), "", $url);
-      $this->page_number = array_shift($matches);
+      $_GET['page'] = array_shift($matches);
     } 
     # store url and converted file path
     $this->file_path = Helpers::url_to_file_path($url);

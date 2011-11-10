@@ -3,7 +3,11 @@ get "/semesters" do
 	  foreach $children do
   	  if $children do
   		  :sidebar
+  		  :projects
   	  endif
   	endforeach
+  endif
+  if @page_refs do
+    :pages_bottom
   endif
 end

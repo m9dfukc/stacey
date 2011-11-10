@@ -1,6 +1,6 @@
-title: Sommersemester 2011
+title: Wintersemester 2010/11
 -
-topics: Dies und Das
+topics: Generative Design
 -
 description: Kurzbeschreibung folgt.
 -

@@ -1,6 +1,6 @@
 title: Sommersemester 2011
 -
-topics: Dies und Das
+topics: Sakral Design
 -
 description: Kurzbeschreibung folgt.
 -

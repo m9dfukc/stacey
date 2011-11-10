@@ -4,4 +4,6 @@ profession: University of the Arts, Berlin
 -
 email: <hi@yourdomain.com>
 -
+semesters_per_page: 2
+-
 bypass_cache: 1

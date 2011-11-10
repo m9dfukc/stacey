@@ -7,7 +7,7 @@ Class PageDataExtended extends PageData {
 		parent::create($page);
 		self::create_collections($page);
 		self::create_vars($page);
-		self::create_semester_projects_ref($page);
+		self::create_projects_ref($page);
 	}
 
 	static function create_collections($page) {
@@ -28,22 +28,21 @@ Class PageDataExtended extends PageData {
 		$page->parent_slug = $split_url[count($split_url) - 1];
 		# @is_xhr (is this an AJAX request)
     $page->is_xhr = (preg_match('/text\/javascript/',$_SERVER['HTTP_ACCEPT']) ? true : false);
-    
-    if (!empty($page->data['@page_number'])) {
-      $page_nr = $page->data['@page_number'];
-      $page->loop_offset = (($page_nr - 1) * 2) . ":" . ($page_nr * 2);
+    if (!empty($_GET['page'])) {
+      $page_nr = $_GET['page'];
+      $semesters_per_page = isset($page->data['@semesters_per_page']) ? $page->data['@semesters_per_page'] : 4;
+      $page->semesters_start = (($page_nr - 1) * $semesters_per_page) + 1;
+      $page->semesters_offset = ($page_nr * $semesters_per_page);
     } else {
-      $page->loop_offset = "0:2";
+      $semesters_per_page = isset($page->data['@semesters_per_page']) ? $page->data['@semesters_per_page'] : 4;
+      $page->semesters_start = 1;
+      $page->semesters_offset = $semesters_per_page;
+      $page->page_number = 1;
     }
 	}
 	
-	static function create_semester_projects_ref($page) { 
-	  //self::dbg($page);
-	   
-	  if (isset($page->data["@parent_slug"]) && preg_match('/students/is', $page->data['@parent_slug'])) {
-	    /* todo */
-    } 
-    else if (isset($page->data["@parent_slug"]) && $page->data["@parent_slug"] == "projects") {
+	static function create_projects_ref($page) { 
+    if (isset($page->data["@parent_slug"]) && $page->data["@parent_slug"] == "projects") {
 	    if (isset($page->data['@keywords'])) {
 	      $page->data['@shortkeywords'] = character_limiter($page->data['@keywords'], 60);
 	    }
@@ -62,8 +61,8 @@ Class PageDataExtended extends PageData {
       }
     } 
     else if (isset($page->data["@parent_slug"]) && $page->data["@parent_slug"] == "semesters") {
-        echo $page->data["@index"] . "<br>";
-        echo $page->data["@siblings_count"] . "<br>";
+      if (!empty($page->data["@siblings_count"])) $page->page_count = ceil($page->data["@siblings_count"] / $page->data['@semesters_per_page']);
+      if ($page->data["@index"] >= $page->data["@semesters_start"] && $page->data["@index"] <= $page->data["@semesters_offset"]) {
   	    $students_path = "";
   	    foreach($page->data['$root'] as $key => $value) {
   	      if (preg_match('/students/', strtolower($key)) ) {
@@ -81,8 +80,18 @@ Class PageDataExtended extends PageData {
   	        }
   	      }
   	    }
-  	    
-  	    $page->children = $semester_projects;
+      }
+	    $page->children = $semester_projects;
+	  } 
+	  if (isset($page->data["@slug"]) && $page->data["@slug"] == "semesters") {
+	    
+	    $page_count = ceil($page->data["@children_count"] / $page->data['@semesters_per_page']);
+	    $page->data['@page_refs'] = "";
+	    for ($i = 1; $i <= $page_count; $i++) {
+	      $delimiter = ($i != $page_count) ? ", " : "";
+        if( $_GET['page'] != $i && (!empty($_GET['page']) || $i != 1)) $page->data['@page_refs'] .= "<a href='".trim($page->data['@url'], "/")."/page=".$i."'>".$i."</a>".$delimiter;
+        else $page->data['@page_refs'] .= $i.$delimiter;
+      }
 	  }
 	}
 	
